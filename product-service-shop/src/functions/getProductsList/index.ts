@@ -11,11 +11,6 @@ export default {
         method: 'get',
         path: 'products',
         cors: true,
-        // request: {
-        //   schemas: {
-        //     'application/json': schema,
-        //   },
-        // },
       },
     },
   ],
