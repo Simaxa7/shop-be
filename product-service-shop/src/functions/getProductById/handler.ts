@@ -1,20 +1,47 @@
-import { formatJSONResponse } from '@libs/api-gateway';
+import { formatJSONResponse } from "@libs/api-gateway";
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import validator from "@middy/validator";
+import { middyfy } from "@libs/lambda";
+import { productService } from "../../services";
 
-import { getProductById } from "@functions/products";
+const outputSchema = {
+  type: "object",
+  required: ["body", "statusCode"],
+  properties: {
+    body: {
+      type: "string",
+    },
+    statusCode: {
+      type: "number",
+    },
+    headers: {
+      type: "object",
+    },
+  },
+};
 
-const getProductItem = async (event) => {
-  console.log('getProductItem event', event)
+const getProductItem = async (
+  event: APIGatewayProxyEvent
+): Promise<APIGatewayProxyResult> => {
+  console.log("getProductItem event", event);
 
-  if (!event?.pathParameters?.productId) {
-    return {
-      statusCode: 400,
-      message: 'error ID'
+  try {
+    const { id } = event.pathParameters;
+    console.log("event", event);
+    console.log("product id:", id);
+
+    const product = await productService.getProduct(id);
+    console.log("[db.get] by id:", product);
+
+    if (!product) {
+      return formatJSONResponse(404, "error ID");
     }
-  }
-  if (event.pathParameters.productId){
-    // @ts-ignore
-    return formatJSONResponse(getProductById(event.pathParameters.productId));
+
+    return formatJSONResponse(200, product);
+  } catch (e) {
+    console.error("Error during database request executing", e);
+    return formatJSONResponse(500, e);
   }
 };
 
-export const main = getProductItem;
+export const main = middyfy(getProductItem).use(validator({ outputSchema }));

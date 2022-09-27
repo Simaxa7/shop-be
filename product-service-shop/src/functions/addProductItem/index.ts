@@ -5,16 +5,9 @@ export default {
   events: [
     {
       http: {
-        method: "get",
-        path: "products/{id}",
+        method: "POST",
+        path: "products",
         cors: true,
-        request: {
-          parameters: {
-            paths: {
-              id: true,
-            },
-          },
-        },
       },
     },
   ],
