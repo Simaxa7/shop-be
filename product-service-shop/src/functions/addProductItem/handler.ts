@@ -70,7 +70,7 @@ const createProduct: ValidatedEventAPIGatewayProxyEvent<
 
     // @ts-ignore
     const newProduct = await productService.createProduct(sendingItem);
-    console.log("[db.put] newProduct", newProduct);
+    console.log("createProduct newProduct", newProduct);
 
     return formatJSONResponse(200, newProduct);
   } catch (e) {

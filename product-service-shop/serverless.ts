@@ -42,7 +42,6 @@ const serverlessConfiguration: AWS = {
               "dynamodb:UpdateItem",
               "dynamodb:DeleteItem",
             ],
-            // Resource: `arn:aws:dynamodb:eu-central-1:*:table/${TABLE_WALLPAPER_NAME}`,
             Resource: {
               "Fn::GetAtt": [TABLE_WALLPAPER_NAME, "Arn"],
             },

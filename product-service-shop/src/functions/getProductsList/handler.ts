@@ -23,7 +23,7 @@ const outputSchema = {
 const getProductsList = async (): Promise<APIGatewayProxyResult> => {
   try {
     const products = await productService.getAllProducts();
-    console.log("[db.scan] products", products);
+    console.log("getProductsList products", products);
 
     return formatJSONResponse(200, products);
   } catch (e) {

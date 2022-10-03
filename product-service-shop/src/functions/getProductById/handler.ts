@@ -27,11 +27,9 @@ const getProductItem = async (
 
   try {
     const { id } = event.pathParameters;
-    console.log("event", event);
-    console.log("product id:", id);
-
     const product = await productService.getProduct(id);
-    console.log("[db.get] by id:", product);
+
+    console.log("getProductItem by id:", product);
 
     if (!product) {
       return formatJSONResponse(404, "error ID");
