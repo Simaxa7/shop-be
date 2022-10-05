@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1a98007d-2fc7-490c-b504-78d01374fda8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/import-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/.nvmrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/serverless.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/src/functions/importFileParser/handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/src/functions/importFileParser/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/src/functions/importProductsFile/handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/src/functions/importProductsFile/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/src/functions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/src/libs/api-gateway.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/src/libs/handler-resolver.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/src/libs/lambda.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/tsconfig.paths.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import-service/webpack.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Pavel_Simashchanka/git-simaxa7/shop-be/import-service/src/functions",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Pavel_Simashchanka\\git-simaxa7\\shop-be\\product-service-shop\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Pavel_Simashchanka\git-simaxa7\shop-be\import-service\src\functions" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/product-service-shop/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy:prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/product-service-shop/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy:prod" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.deploy:prod" />
+        <item itemvalue="npm.deploy" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="taks5" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
