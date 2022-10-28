@@ -5,7 +5,7 @@ export default {
   events: [
     {
       s3: {
-        bucket: 'products-upload-bucket1',
+        bucket: 'my-products-upload-bucket',
         event: 's3:ObjectCreated:*',
         rules: [
           {

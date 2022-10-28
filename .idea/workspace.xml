@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a98007d-2fc7-490c-b504-78d01374fda8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/import-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/.nvmrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/serverless.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/src/functions/importFileParser/handler.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/src/functions/importFileParser/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/src/functions/importProductsFile/handler.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/src/functions/importProductsFile/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/src/functions/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/src/libs/api-gateway.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/src/libs/handler-resolver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/src/libs/lambda.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/tsconfig.paths.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/webpack.config.js" afterDir="false" />
+    <list default="true" id="1a98007d-2fc7-490c-b504-78d01374fda8" name="Changes" comment="add import">
+      <change afterPath="$PROJECT_DIR$/product-service-shop/src/functions/catalogBatchProcess/handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-service-shop/src/functions/catalogBatchProcess/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/serverless.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/serverless.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/src/functions/importFileParser/handler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/src/functions/importFileParser/handler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/src/functions/importFileParser/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/src/functions/importFileParser/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/src/functions/importProductsFile/handler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/src/functions/importProductsFile/handler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/src/libs/lambda.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/src/libs/lambda.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service-shop/serverless.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-service-shop/serverless.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service-shop/src/functions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-service-shop/src/functions/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service-shop/src/libs/lambda.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-service-shop/src/libs/lambda.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,25 +27,38 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Pavel_Simashchanka/git-simaxa7/shop-be/import-service/src/functions",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\Pavel_Simashchanka\\git-simaxa7\\shop-be\\product-service-shop\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pavel_Simashchanka/git-simaxa7/shop-be/import-service/src/functions&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Pavel_Simashchanka\\git-simaxa7\\shop-be\\product-service-shop\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Pavel_Simashchanka\git-simaxa7\shop-be\import-service\src\functions" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.deploy">
+    <configuration name="deploy (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/import-service/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/product-service-shop/package.json" />
       <command value="run" />
@@ -74,8 +81,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.deploy:prod" />
         <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.deploy (1)" />
+        <item itemvalue="npm.deploy:prod" />
       </list>
     </recent_temporary>
   </component>

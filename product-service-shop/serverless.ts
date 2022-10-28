@@ -3,6 +3,7 @@ import type { AWS } from "@serverless/typescript";
 import getProductsList from "@functions/getProductsList";
 import getProductItem from "@functions/getProductById";
 import addProductItem from "@functions/addProductItem";
+import catalogBatchProcess from '@functions/catalogBatchProcess';
 
 const TABLE_WALLPAPER_NAME = "wallpaperTable2";
 
@@ -14,7 +15,7 @@ const serverlessConfiguration: AWS = {
     name: "aws",
     runtime: "nodejs14.x",
     stage: "dev",
-    region: "eu-central-1",
+    region: "eu-west-3",
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -24,6 +25,9 @@ const serverlessConfiguration: AWS = {
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
       TABLE_NAME: {
         Ref: TABLE_WALLPAPER_NAME,
+      },
+      SNS_ARN: {
+        Ref: 'SNSTopic'
       },
     },
     iam: {
@@ -45,6 +49,13 @@ const serverlessConfiguration: AWS = {
             // Resource: `arn:aws:dynamodb:eu-central-1:*:table/${TABLE_WALLPAPER_NAME}`,
             Resource: {
               "Fn::GetAtt": [TABLE_WALLPAPER_NAME, "Arn"],
+            },
+          },
+          {
+            Effect: 'Allow',
+            Action: ['sns:*'],
+            Resource: {
+              Ref: 'SNSTopic',
             },
           },
         ],
@@ -76,9 +87,28 @@ const serverlessConfiguration: AWS = {
           },
         },
       },
+      SNSTopic: {
+        Type: 'AWS::SNS::Topic',
+        Properties: {
+          TopicName: 'SNSTopic',
+        },
+      },
+      SNSSubscription: {
+        Type: 'AWS::SNS::Subscription',
+        Properties: {
+          Endpoint: 'simaxa7@gmail.com',
+          Protocol: 'email',
+          TopicArn: { Ref: 'SNSTopic' },
+        },
+      },
     },
   },
-  functions: { getProductsList, getProductItem, addProductItem },
+  functions: {
+    getProductsList,
+    getProductItem,
+    addProductItem,
+    catalogBatchProcess,
+  },
   package: { individually: true },
   custom: {
     esbuild: {

@@ -3,7 +3,7 @@ import type { AWS } from "@serverless/typescript";
 import importProductsFile from '@functions/importProductsFile';
 import importFileParser from '@functions/importFileParser';
 
-const uploadBucket = 'products-upload-bucket1';
+const uploadBucket = 'my-products-upload-bucket';
 
 const serverlessConfiguration: AWS = {
   service: "import-service",
@@ -13,7 +13,7 @@ const serverlessConfiguration: AWS = {
     name: "aws",
     runtime: "nodejs14.x",
     stage: "dev",
-    region: "eu-west-1",
+    region: "eu-west-3",
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -22,8 +22,9 @@ const serverlessConfiguration: AWS = {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
       BUCKET_NAME: {
-        Ref: 'productsUploadBucket1',
-      }
+        Ref: 'ProductsUploadBucket',
+      },
+      SQS_URL: { Ref: 'catalogItemsQueue' },
       },
     iam: {
       role: {
@@ -38,13 +39,20 @@ const serverlessConfiguration: AWS = {
             Action: ['s3:*'],
             Resource: [`arn:aws:s3:::${uploadBucket}/*`],
           },
+          {
+            Effect: 'Allow',
+            Action: 'sqs:*',
+            Resource: {
+              'Fn::GetAtt': ['catalogItemsQueue', 'Arn'],
+            },
+          },
         ],
       },
     },
   },
   resources: {
     Resources: {
-      productsUploadBucket1: {
+      ProductsUploadBucket: {
         Type: "AWS::S3::Bucket",
         Properties: {
           BucketName: uploadBucket,
@@ -59,7 +67,7 @@ const serverlessConfiguration: AWS = {
           },
         },
       },
-      productsUploadBucketPolicy: {
+      ProductsUploadBucketPolicy: {
         Type: 'AWS::S3::BucketPolicy',
         Properties: {
           Bucket: uploadBucket,
@@ -79,6 +87,32 @@ const serverlessConfiguration: AWS = {
             ],
           },
         },
+      },
+      catalogItemsQueue: {
+        Type: 'AWS::SQS::Queue',
+        Properties: {
+          QueueName: 'catalogItemsQueue',
+        },
+      },
+      catalogItemsQueuePolicy: {
+        Type: 'AWS::SQS::QueuePolicy',
+        Properties: {
+          Queues: [{ Ref: 'catalogItemsQueue' }],
+          PolicyDocument: {
+            Statement: [
+              {
+                Action: ['sqs:*'],
+                Effect: 'Allow',
+                Resource: '*',
+              },
+            ],
+          },
+        },
+      },
+    },
+    Outputs: {
+      ImportServiceSQSarn: {
+        Value: { 'Fn::GetAtt': ['catalogItemsQueue', 'Arn'] },
       },
     },
   },
