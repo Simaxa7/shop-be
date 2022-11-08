@@ -12,7 +12,7 @@ const importFileParser = async (event: S3Event) => {
   const BucketName = process.env.BUCKET_NAME;
   const s3 = new AWS.S3({ region: 'eu-west-3' });
 
-  const SQS_URL = process.env.SQS_URL;
+  // const SQS_URL = process.env.SQS_URL;
   const sqs = new AWS.SQS();
 
   try {
@@ -49,7 +49,7 @@ const importFileParser = async (event: S3Event) => {
 
             let res = await sqs
                 .sendMessage({
-                  QueueUrl: SQS_URL,
+                  QueueUrl: 'https://sqs.eu-west-3.amazonaws.com/201417995229/catalogItemsQueue',
                   MessageBody: JSON.stringify(data),
                 })
                 .promise();

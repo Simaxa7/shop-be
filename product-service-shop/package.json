@@ -14,12 +14,13 @@
   "dependencies": {
     "@middy/core": "^2.5.3",
     "@middy/error-logger": "^3.2.0",
+    "@middy/http-cors": "^3.1.1",
     "@middy/http-error-handler": "^3.3.1",
     "@middy/http-json-body-parser": "^2.5.3",
     "@middy/input-output-logger": "^3.2.0",
     "@middy/validator": "^3.3.1",
-    "@middy/http-cors": "^3.1.1",
-    "serverless-dynamodb-local": "^0.2.40",
+    "aws-sdk": "^2.1156.0",
+    "serverless-dynamodb-local": "^1.0.2",
     "serverless-offline": "^10.0.0",
     "uuid": "^9.0.0",
     "yup": "^0.32.11"

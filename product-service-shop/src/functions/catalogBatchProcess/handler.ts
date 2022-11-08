@@ -42,7 +42,7 @@ export const catalogBatchProcess = async (event: SQSEvent) => {
             {
                 Subject: 'Products uploaded',
                 Message: 'New products uploaded',
-                TopicArn: process.env.SNS_ARN,
+                TopicArn: 'arn:aws:sns:eu-west-3:201417995229:SNSTopic',
             },
             () => {
                 console.log('Email send');
