@@ -8,7 +8,7 @@ const importProductsFile = async (event) => {
   console.log('start process importProductsFile');
 
   const BucketName = process.env.BUCKET_NAME;
-  const s3 = new AWS.S3({ region: 'eu-west-1' });
+  const s3 = new AWS.S3({ region: 'eu-west-3' });
 
   try {
     console.log('event = ', event);

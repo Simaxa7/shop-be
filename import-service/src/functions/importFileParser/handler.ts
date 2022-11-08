@@ -7,12 +7,13 @@ import * as AWS from 'aws-sdk';
 import csv from 'csv-parser';
 
 const importFileParser = async (event: S3Event) => {
-  console.log('start process importProductsFile', JSON.stringify(event.Records));
+  console.log('start process importFileParser', JSON.stringify(event.Records));
 
   const BucketName = process.env.BUCKET_NAME;
-  const s3 = new AWS.S3({ region: 'eu-west-1' });
+  const s3 = new AWS.S3({ region: 'eu-west-3' });
 
-  let result = [];
+  // const SQS_URL = process.env.SQS_URL;
+  const sqs = new AWS.SQS();
 
   try {
     for (const record of event.Records) {
@@ -43,10 +44,16 @@ const importFileParser = async (event: S3Event) => {
 
         s3Stream
           .pipe(csv())
-          .on('data', (data) => {
+          .on('data', async(data) => {
             console.log('data: ', data);
-            result = [...result, data];
-            console.log('result: ', result);
+
+            let res = await sqs
+                .sendMessage({
+                  QueueUrl: 'https://sqs.eu-west-3.amazonaws.com/201417995229/catalogItemsQueue',
+                  MessageBody: JSON.stringify(data),
+                })
+                .promise();
+            console.log('SENDED!!!', res);
           })
           .on('error', (error) => {
             console.log('error:', error);
