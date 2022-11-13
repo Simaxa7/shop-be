@@ -9,6 +9,7 @@ const serverlessConfiguration: AWS = {
   service: "import-service",
   frameworkVersion: "3",
   plugins: ["serverless-esbuild"],
+  // useDotenv: true,
   provider: {
     name: "aws",
     runtime: "nodejs14.x",
@@ -109,6 +110,35 @@ const serverlessConfiguration: AWS = {
           },
         },
       },
+      GatewayResponseUnauthorized: {
+        Type: "AWS::ApiGateway::GatewayResponse",
+        Properties: {
+          ResponseParameters: {
+            'gatewayresponse.header.WWW-Authenticate': "'Basic'",
+            'gatewayresponse.header.Access-Control-Allow-Origin': "'*'",
+            'gatewayresponse.header.Access-Control-Allow-Headers': "'*'"
+            },
+          ResponseType: "UNAUTHORIZED",
+              RestApiId: {
+            Ref: "ApiGatewayRestApi"
+          },
+          StatusCode: "401"
+        }
+            },
+      GatewayResponseForbidden: {
+        Type: "AWS::ApiGateway::GatewayResponse",
+        Properties: {
+          ResponseParameters: {
+            'gatewayresponse.header.Access-Control-Allow-Origin': "'*'",
+            'gatewayresponse.header.Access-Control-Allow-Headers': "'*'"
+          },
+          ResponseType: "ACCESS_DENIED",
+          RestApiId: {
+            Ref: "ApiGatewayRestApi"
+          },
+          StatusCode: "403"
+        }
+      }
     },
     Outputs: {
       ImportServiceSQSarn: {

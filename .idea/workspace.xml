@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a98007d-2fc7-490c-b504-78d01374fda8" name="Changes" comment="sqs and sns changes in arn and url" />
+    <list default="true" id="1a98007d-2fc7-490c-b504-78d01374fda8" name="Changes" comment="task7 be auth">
+      <change afterPath="$PROJECT_DIR$/authorization-service/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/.nvmrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/serverless.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/src/functions/basicAuthorizer/handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/src/functions/basicAuthorizer/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/src/functions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/src/libs/api-gateway.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/src/libs/handler-resolver.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/src/libs/lambda.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/tsconfig.paths.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/serverless.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/serverless.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/src/functions/importFileParser/handler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/src/functions/importFileParser/handler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/src/functions/importProductsFile/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/src/functions/importProductsFile/index.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="taks6" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -19,7 +41,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2HFyw46s6CEjZFW1O3MafFMQf8l" />
   <component name="ProjectViewState">
@@ -33,7 +55,7 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/Pavel_Simashchanka/git-simaxa7/shop-be/import-service/src/functions",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\Pavel_Simashchanka\\git-simaxa7\\shop-be\\product-service-shop\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\Pavel_Simashchanka\\git-simaxa7\\shop-be\\import-service\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -45,6 +67,16 @@
   <component name="RunManager" selected="npm.deploy">
     <configuration name="deploy (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/import-service/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/authorization-service/package.json" />
       <command value="run" />
       <scripts>
         <script value="deploy" />
@@ -73,10 +105,22 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="remove" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/import-service/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="remove" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="npm.deploy (1)" />
         <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.remove" />
+        <item itemvalue="npm.deploy (2)" />
         <item itemvalue="npm.deploy:prod" />
       </list>
     </recent_temporary>
@@ -97,6 +141,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667895364056</updated>
       <workItem from="1667895368976" duration="987000" />
+      <workItem from="1667979423742" duration="39510000" />
     </task>
     <task id="LOCAL-00002" summary="sqs and sns changes in arn and url">
       <created>1667896670716</created>
@@ -137,6 +182,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add sqs and sns" />
     <MESSAGE value="sqs and sns changes in arn and url" />
-    <option name="LAST_COMMIT_MESSAGE" value="sqs and sns changes in arn and url" />
+    <MESSAGE value="task7 be auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="task7 be auth" />
   </component>
 </project>
